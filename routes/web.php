@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Products
 Route::resource('products', 'ProductController');
+// Colors
+Route::resource('colors', 'ColorController');
