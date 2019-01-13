@@ -18,4 +18,4 @@ Route::get('/', function () {
 // Products
 Route::resource('products', 'ProductController');
 // Colors
-Route::resource('colors', 'ColorController');
+Route::resource('varieties', 'VarietyController');

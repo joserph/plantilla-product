@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class Variety extends Model
 {
-    protected $table = 'colors';
+    protected $table = 'varieties';
 
     protected $fillable = [
     	'variety',
-        'color'];
+        'color',
+        'type'];
 }

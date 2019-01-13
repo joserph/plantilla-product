@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Color;
+use App\Variety;
 
-class ColorController extends Controller
+class VarietyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ColorController extends Controller
      */
     public function index()
     {
-        return view('colors.index');
+        $varieties = Variety::orderBy('variety', 'ASC')->get();
+        return view('varieties.index', compact('varieties'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('varieties.create');
     }
 
     /**
@@ -35,7 +36,11 @@ class ColorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $variety = new Variety($request->all());
+        $variety->save();
+
+        //flash()->success('El versículo <b>' . $verse->libro . ' ' . $verse->capitulo . ':' . $verse->versiculo . '</b> se agregó con exito!');
+        return redirect()->route('varieties.index');
     }
 
     /**
